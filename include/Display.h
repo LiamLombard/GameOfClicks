@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Game_State.h"
+#include <SFML/Graphics.hpp>
+
 namespace Display
 {
   constexpr static int WIDTH = 1280;
@@ -9,8 +12,9 @@ namespace Display
   void close();
   void clear();
   void update();
-
-  void checkForClose();
+  void draw(const sf::Drawable& drawable);
+  void checkForClose(const sf::Event& e);
+  void pollEvents(State::Game_State& gameState);
 
   bool isOpen();
 }

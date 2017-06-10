@@ -10,7 +10,7 @@ namespace State
     public:
       RandomGame(Application& application);
 
-      void input() override;
+      void input (const sf::Event& e) override;
       void update() override;
       void draw() override;
 
@@ -23,6 +23,9 @@ namespace State
       std::uniform_int_distribution<int> randWidth;
       std::uniform_int_distribution<int> randHeight;
       constexpr static int R_SIZE = 50;
+      sf::RectangleShape rect;
+      sf::Vector2f currentPos;
+      bool clicked;
 
   };
 }

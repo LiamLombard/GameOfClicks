@@ -12,13 +12,12 @@ void Application::runMainGameLoop()
   while(Display::isOpen())
   {
     Display::clear();
-
-    m_states.top()->input();
+    
+    Display::pollEvents(*m_states.top());
     m_states.top()->update();
     m_states.top()->draw();
 
     Display::update();
-    Display::checkForClose();
   }
 }
 
