@@ -1,5 +1,6 @@
 #include "../include/RandomGame.h"
 #include "../include/Display.h"
+#include <iostream>
 
 namespace State
 {
@@ -10,7 +11,9 @@ namespace State
     randHeight(0, Display::HEIGHT-R_SIZE),
     rect(sf::Vector2f(R_SIZE, R_SIZE)),
     currentPos(Display::WIDTH/2-R_SIZE, Display::HEIGHT/2-R_SIZE),
-    clicked(false)
+    clicked(false),
+    totalCount(0),
+    hitCount(0)
   {
     rect.setPosition(currentPos);
   }
@@ -20,10 +23,17 @@ namespace State
     if(objectClicked(e, currentPos, rect))
     {
       clicked = true;
+      hitCount++;
+      totalCount++;
+      // std::cout << "Accuracy: " << (float) hitCount/totalCount * 100 << '\n';
+    }
+    if(misClicked(e, currentPos, rect))
+    {
+      totalCount++;
     }
   }
 
-  void RandomGame::update()
+  void RandomGame::update(float dt)
   {
     if(clicked)
     {

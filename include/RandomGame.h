@@ -11,7 +11,7 @@ namespace State
       RandomGame(Application& application);
 
       void input (const sf::Event& e) override;
-      void update() override;
+      void update(float dt) override;
       void draw() override;
 
     protected:
@@ -26,6 +26,8 @@ namespace State
       sf::RectangleShape rect;
       sf::Vector2f currentPos;
       bool clicked;
+      int totalCount;
+      int hitCount;
 
   };
 }
