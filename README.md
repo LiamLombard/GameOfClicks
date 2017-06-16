@@ -1,10 +1,10 @@
 # GameOfClicks
 
-##Dependencies
+## Dependencies
 1. CMake
 2. SMFL 
 
-##Building on Linux
+## Building on Linux
 
 1. Clone repository to location of your choice.
 2. Move into said directory.
