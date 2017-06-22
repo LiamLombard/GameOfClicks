@@ -1,5 +1,6 @@
 #include "BaseState.h"
 #include "RandomGame.h"
+#include "../../Controller/StateController.h"
 
 namespace State
 {
@@ -14,26 +15,26 @@ namespace State
 
   void RandomGame::playGame()
   {
-    while (win->isOpen())
+    sf::Event event;
+    while (win->pollEvent(event))
     {
-      sf::Event event;
-      while (win->pollEvent(event))
+      if (event.type == sf::Event::Closed)
       {
-        if (event.type == sf::Event::Closed)
-        {
-          win->close();
-        }
-        if(objectClicked(event, rect))
-        {
-          rect.setPosition(randWidth(gen), randHeight(gen));
-        }
+        win->close();
       }
-
-      win->clear();
-
-      win->draw(rect);
-      win->display();
+      if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+      {
+        stateController->popState();
+      }
+      if(objectClicked(event, rect))
+      {
+        rect.setPosition(randWidth(gen), randHeight(gen));
+      }
     }
+
+    win->clear();
+    win->draw(rect);
+    win->display();
   }
 
 }
