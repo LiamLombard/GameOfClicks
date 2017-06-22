@@ -7,6 +7,11 @@ namespace State
     win = &window;
   }
 
+void BaseState::playGame()
+{
+  
+}
+
   bool BaseState::objectClicked(const sf::Event& event, sf::Shape& shape)
   {
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)

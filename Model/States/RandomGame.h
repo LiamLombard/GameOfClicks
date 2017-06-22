@@ -1,7 +1,6 @@
 #ifndef RANDOM_GAME_H
 #define RANDOM_GAME_H
 
-#include <SFML/Graphics.hpp>
 #include <random>
 #include "BaseState.h"
 

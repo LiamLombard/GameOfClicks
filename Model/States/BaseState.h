@@ -3,11 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace sf
-{
-  class RenderWindow;
-}
-
 namespace State
 {
   class BaseState
@@ -17,7 +12,7 @@ namespace State
 
     public:
       BaseState(sf::RenderWindow& window);
-      virtual void playGame() = 0;
+      virtual void playGame();
       bool objectClicked(const sf::Event& event, sf::Shape& shape);
 
   };
