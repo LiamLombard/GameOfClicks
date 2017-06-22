@@ -15,7 +15,7 @@ namespace State
       std::uniform_int_distribution<int> randHeight;
 
     public:
-      RandomGame(sf::RenderWindow& window, int size);
+      RandomGame(sf::RenderWindow& window, Controller::StateController& sc, int size);
       void playGame();
 
   };

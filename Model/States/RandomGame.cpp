@@ -3,8 +3,8 @@
 
 namespace State
 {
-  RandomGame::RandomGame(sf::RenderWindow& window, int size)
-  : BaseState (window),
+  RandomGame::RandomGame(sf::RenderWindow& window, Controller::StateController& sc, int size)
+  : BaseState (window, sc),
   rect(sf::Vector2f(size, size)),
   randWidth(0,window.getSize().x-50),
   randHeight(0,window.getSize().y-size)

@@ -2,14 +2,16 @@
 
 namespace State
 {
-  BaseState::BaseState(sf::RenderWindow& window)
+  BaseState::BaseState(sf::RenderWindow& window, Controller::StateController& sc)
+  : win(&window),
+  stateController(&sc)
   {
-    win = &window;
+
   }
 
 void BaseState::playGame()
 {
-  
+
 }
 
   bool BaseState::objectClicked(const sf::Event& event, sf::Shape& shape)

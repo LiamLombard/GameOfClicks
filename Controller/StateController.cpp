@@ -1,16 +1,17 @@
 #include "StateController.h"
+#include "../Model/States/MainMenu.h"
 
 namespace Controller
 {
   StateController::StateController(sf::RenderWindow& window)
   : win (&window)
   {
-
+    pushState(std::make_unique<State::MainMenu>(*win, *this));
   }
 
-  void StateController::pushState(State::BaseState& nextState)
+  void StateController::pushState(std::unique_ptr<State::BaseState> nextState)
   {
-    stateStack.push(std::move(&nextState));
+    stateStack.push(std::move(nextState));
   }
 
   void StateController::popState()
@@ -18,9 +19,12 @@ namespace Controller
     stateStack.pop();
   }
 
-  void StateController::runStateLoop()
+  void StateController::runMainLoop()
   {
-    stateStack.top()->playGame();
+    while (win->isOpen())
+    {
+      stateStack.top()->playGame();
+    }
   }
 
 }

@@ -9,9 +9,7 @@ int main()
 {
   sf::RenderWindow window(sf::VideoMode(W_WIDTH, W_HEIGHT), "Game of Clicks");
   Controller::StateController sc(window);
-  State::RandomGame random(window, 50);
-  sc.pushState(random);
-  sc.runStateLoop();
+  sc.runMainLoop();
 
 
   return 0;

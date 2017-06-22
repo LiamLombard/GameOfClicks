@@ -2,8 +2,12 @@
 #define STATE_CONTROLLER_H
 
 #include "../Model/States/BaseState.h"
-#include <SFML/Graphics.hpp>
 #include <stack>
+
+namespace State
+{
+  class BaseState;
+}
 
 namespace Controller
 {
@@ -11,13 +15,13 @@ namespace Controller
   {
     private:
       sf::RenderWindow *win;
-      std::stack<State::BaseState*> stateStack;
+      std::stack<std::unique_ptr<State::BaseState>> stateStack;
 
     public:
       StateController(sf::RenderWindow& window);
-      void pushState(State::BaseState& nextState);
+      void pushState(std::unique_ptr<State::BaseState> nextState);
       void popState();
-      void runStateLoop();
+      void runMainLoop();
 
 
   };
