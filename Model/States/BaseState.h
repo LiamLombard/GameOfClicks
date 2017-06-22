@@ -1,28 +1,26 @@
-#ifndef STATE_H
-#define STATE_H
+#ifndef BASE_STATE_H
+#define BASE_STATE_H
 
-#include <vector>
 #include <SFML/Graphics.hpp>
 
-class ScreenManager;
+namespace sf
+{
+  class RenderWindow;
+}
 
 namespace State
 {
   class BaseState
   {
-    public:
-      BaseState(ScreenManager& scrmgr);
-      virtual ~BaseState() {}
-
-      virtual void processInput(const sf::Event& e) = 0;
-      virtual void update() = 0;
-      virtual sf::RectangleShape& draw() = 0;
-      bool objectClicked(const sf::Event& event, const sf::Shape& entity);
-
     protected:
-      ScreenManager* scrmgr;
-      int R_SIZE = 50;
+      sf::RenderWindow* win;
+
+    public:
+      BaseState(sf::RenderWindow& window);
+      virtual void playGame() = 0;
+      bool objectClicked(const sf::Event& event, sf::Shape& shape);
+
   };
 }
 
-#endif /* end of include guard: STATE_H */
+#endif /* end of include guard: BASE_STATE_H */

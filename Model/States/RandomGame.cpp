@@ -1,33 +1,39 @@
 #include "BaseState.h"
 #include "RandomGame.h"
 
-#include <iostream>
-
 namespace State
 {
-    RandomGame::RandomGame(ScreenManager& sm)
-    : BaseState(sm)
-    {
-      square.setSize({50, 50});
-      square.setFillColor(sf::Color::White);
-      square.setPosition(0, 0);
-    }
+  RandomGame::RandomGame(sf::RenderWindow& window, int size)
+  : BaseState (window),
+  rect(sf::Vector2f(size, size)),
+  randWidth(0,window.getSize().x-50),
+  randHeight(0,window.getSize().y-size)
+  {
+    rect.setPosition(window.getSize().x/2-size, window.getSize().y/2-size);
+  }
 
-    void RandomGame::processInput(const sf::Event& e)
+  void RandomGame::playGame()
+  {
+    while (win->isOpen())
     {
-      if(objectClicked(e, square))
+      sf::Event event;
+      while (win->pollEvent(event))
       {
-        std::cout << "yay\n";
+        if (event.type == sf::Event::Closed)
+        {
+          win->close();
+        }
+        if(objectClicked(event, rect))
+        {
+          rect.setPosition(randWidth(gen), randHeight(gen));
+        }
       }
-    }
 
-    void RandomGame::update()
-    {
+      win->clear();
 
+      win->draw(rect);
+      win->display();
     }
+  }
 
-    sf::RectangleShape& RandomGame::draw()
-    {
-      return square;
-    }
 }
