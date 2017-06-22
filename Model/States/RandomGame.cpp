@@ -7,7 +7,7 @@ namespace State
   RandomGame::RandomGame(sf::RenderWindow& window, Controller::StateController& sc, int size)
   : BaseState (window, sc),
   rect(sf::Vector2f(size, size)),
-  randWidth(0,window.getSize().x-50),
+  randWidth(0,window.getSize().x-size),
   randHeight(0,window.getSize().y-size)
   {
     rect.setPosition(window.getSize().x/2-size, window.getSize().y/2-size);
