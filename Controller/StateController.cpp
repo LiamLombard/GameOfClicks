@@ -3,8 +3,9 @@
 
 namespace Controller
 {
-  StateController::StateController(sf::RenderWindow& window)
-  : win (&window)
+  StateController::StateController(sf::RenderWindow& window, ResourceManager& resourceManager)
+  : win (&window),
+  rm(&resourceManager)
   {
     pushState(std::make_unique<State::MainMenu>(*win, *this));
   }
@@ -25,6 +26,11 @@ namespace Controller
     {
       stateStack.top()->playGame();
     }
+  }
+
+  const ResourceManager& StateController::getResourceManager()
+  {
+    return *rm;
   }
 
 }

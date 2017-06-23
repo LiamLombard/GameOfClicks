@@ -9,6 +9,7 @@ namespace State
   class MainMenu : public BaseState
   {
     private:
+      sf::Text playGameText;
       sf::RectangleShape mainButton;
 
     public:

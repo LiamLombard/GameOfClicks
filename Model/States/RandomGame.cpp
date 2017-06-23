@@ -10,7 +10,7 @@ namespace State
   randWidth(0,window.getSize().x-size),
   randHeight(0,window.getSize().y-size)
   {
-    rect.setPosition(window.getSize().x/2-size, window.getSize().y/2-size);
+    rect.setPosition((window.getSize().x-size)/2, (window.getSize().y-size)/2);
   }
 
   void RandomGame::playGame()
