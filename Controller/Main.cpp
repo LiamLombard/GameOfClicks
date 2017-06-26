@@ -9,6 +9,7 @@ int main()
 {
   Controller::ResourceManager rm;
   sf::RenderWindow window(sf::VideoMode(W_WIDTH, W_HEIGHT), "Game of Clicks");
+  window.setVerticalSyncEnabled(true);
   Controller::StateController sc(window, rm);
   sc.runMainLoop();
 
