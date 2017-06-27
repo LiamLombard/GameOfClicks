@@ -3,18 +3,14 @@
 #include "../../Controller/StateController.h"
 
 
+
 namespace State
 {
     MainMenu::MainMenu(sf::RenderWindow& window, Controller::StateController& sc)
-    : BaseState(window, sc)
+    : BaseState(window, sc),
+    button(*stateController, "Play Game!", Hack)
     {
-      sf::Vector2f centre(win->getSize().x/2, win->getSize().y/2);
-      playGameText.setFont(sc.getResourceManager().getFont(Hack));
-      playGameText.setString("Play the game!");
-      playGameText.setColor(sf::Color::Blue);
-      mainButton.setSize(sf::Vector2f(playGameText.getGlobalBounds().width+10.0f, playGameText.getGlobalBounds().height+10.0f));
-      mainButton.setPosition(centre-mainButton.getSize()/2.0f);
-      playGameText.setPosition(centre-mainButton.getSize()/2.0f);
+      button.setPosition(10, 10);
     }
 
     void MainMenu::playGame()
@@ -26,15 +22,14 @@ namespace State
         {
           win->close();
         }
-        if(objectClicked(event, mainButton))
+        if(objectClicked(event, button))
         {
           stateController->pushState(std::make_unique<RandomGame>(*win, *stateController, 50));
           return;
         }
       }
       win->clear();
-      win->draw(mainButton);
-      win->draw(playGameText);
+      win->draw(button);
       win->display();
     }
 }

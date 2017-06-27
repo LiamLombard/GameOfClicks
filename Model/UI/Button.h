@@ -3,21 +3,34 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "../../Controller/ResourceManager.h"
+
+namespace Controller
+{
+  class StateController;
+}
+
+// Need to implement drawing
 
 namespace UI
 {
   class Button : public sf::Shape
   {
     public:
-      Button(sf::Vector2f& size);
-      void setText(std::string& string, sf::Font& font);
-      void setBackgroundColour(const sf::Color& col);
-      void setTextColour(const sf::Color& col);
+      Button(Controller::StateController &screenController);
+      Button(Controller::StateController &screenController, std::string string, FontRef font = Hack);
+      void setText(std::string string, FontRef font = Hack);
+      void setColours(const sf::Color& backCol, const sf::Color& textCol);
+      void setPosition(sf::Vector2f& pos);
+      void setPosition(float x, float y);
+      virtual std::size_t getPointCount() const;
+      virtual sf::Vector2f getPoint(std::size_t index) const;
+
     private:
+      Controller::StateController *sc;
       sf::RectangleShape backGround;
       sf::Text text;
       sf::Vector2f buttonSize;
-      int padding = 5;
 
   };
 }

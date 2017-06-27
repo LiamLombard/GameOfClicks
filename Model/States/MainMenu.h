@@ -2,15 +2,14 @@
 #define MAIN_MENU_H
 
 #include "BaseState.h"
-
+#include "../UI/Button.h"
 
 namespace State
 {
   class MainMenu : public BaseState
   {
     private:
-      sf::Text playGameText;
-      sf::RectangleShape mainButton;
+      UI::Button button;
 
     public:
       MainMenu(sf::RenderWindow& window, Controller::StateController& sc);

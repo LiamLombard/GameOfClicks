@@ -25,6 +25,7 @@ namespace Controller
       void popState();
       void runMainLoop();
       const ResourceManager& getResourceManager();
+      sf::RenderWindow& getWin();
 
 
   };

@@ -33,4 +33,9 @@ namespace Controller
     return *rm;
   }
 
+  sf::RenderWindow& StateController::getWin()
+  {
+    return *win;
+  }
+
 }
