@@ -2,6 +2,7 @@
 #define BASE_STATE_H
 
 #include <SFML/Graphics.hpp>
+#include "../UI/Button.h"
 
 namespace Controller
 {
@@ -20,6 +21,7 @@ namespace State
       BaseState(sf::RenderWindow& window, Controller::StateController& sc);
       virtual void playGame();
       bool objectClicked(const sf::Event& event, sf::Shape& shape);
+      bool objectClicked(const sf::Event& event, UI::Button& shape);
 
   };
 }

@@ -1,7 +1,7 @@
 #include "MainMenu.h"
 #include "RandomGame.h"
 #include "../../Controller/StateController.h"
-
+#include <iostream>
 
 
 namespace State
@@ -10,7 +10,7 @@ namespace State
     : BaseState(window, sc),
     button(*stateController, "Play Game!", Hack)
     {
-      button.setPosition(10, 10);
+      button.setPosition(win->getSize().x/2, win->getSize().y/2);
     }
 
     void MainMenu::playGame()
@@ -24,6 +24,7 @@ namespace State
         }
         if(objectClicked(event, button))
         {
+          std::cout << "Yay" << '\n';
           stateController->pushState(std::make_unique<RandomGame>(*win, *stateController, 50));
           return;
         }

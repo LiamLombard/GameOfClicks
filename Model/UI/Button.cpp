@@ -8,22 +8,19 @@ namespace UI
   : sc (&screenController)
   {
 
-
-
-
-
   }
 
   Button::Button(Controller::StateController &screenController, std::string string, FontRef font)
   : sc (&screenController)
   {
     setText(string, font);
-    backGround.setSize(sf::Vector2f(text.getGlobalBounds().width+10.0f, text.getGlobalBounds().height+10.0f));
+    setColours();
   }
 
   void Button::setText(std::string string, FontRef font)
   {
     text.setString(string);
+    text.setFont(sc->getResourceManager().getFont(font));
     backGround.setSize(sf::Vector2f(text.getGlobalBounds().width+10.0f, text.getGlobalBounds().height+10.0f));
   }
 
@@ -55,6 +52,17 @@ namespace UI
   sf::Vector2f Button::getPoint(std::size_t index) const
   {
     return backGround.getPoint(index);
+  }
+
+  sf::RectangleShape& Button::getBackGround()
+  {
+    return backGround;
+  }
+
+  void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
+  {
+      target.draw(backGround, states);
+      target.draw(text, states);
   }
 
 

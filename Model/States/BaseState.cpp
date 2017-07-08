@@ -1,4 +1,5 @@
 #include "BaseState.h"
+#include <iostream>
 
 namespace State
 {
@@ -21,6 +22,11 @@ void BaseState::playGame()
       return shape.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
     }
     return false;
+  }
+
+  bool BaseState::objectClicked(const sf::Event& event, UI::Button& shape)
+  {
+    return objectClicked(event, shape.getBackGround());
   }
 
 }
