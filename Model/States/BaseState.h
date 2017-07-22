@@ -21,7 +21,8 @@ namespace State
       virtual void playGame();
       bool objectClicked(const sf::Event& event, sf::Shape& shape);
       bool objectClicked(const sf::Event& event, UI::Button& shape);
-
+      sf::RenderWindow& getWin();
+      void pushState(std::unique_ptr<State::BaseState> nextState);
   };
 }
 

@@ -1,5 +1,5 @@
 #include "BaseState.h"
-#include <iostream>
+#include "../../Controller/StateController.h"
 
 namespace State
 {
@@ -26,6 +26,16 @@ void BaseState::playGame()
   bool BaseState::objectClicked(const sf::Event& event, UI::Button& shape)
   {
     return objectClicked(event, shape.getBackGround());
+  }
+
+  sf::RenderWindow& BaseState::getWin()
+  {
+    return stateController->getWin();
+  }
+
+  void BaseState::pushState(std::unique_ptr<State::BaseState> nextState)
+  {
+    stateController->pushState(std::move(nextState));
   }
 
 }
