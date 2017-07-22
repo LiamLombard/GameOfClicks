@@ -14,11 +14,10 @@ namespace State
   class BaseState
   {
     protected:
-      sf::RenderWindow* win;
       Controller::StateController* stateController;
 
     public:
-      BaseState(sf::RenderWindow& window, Controller::StateController& sc);
+      BaseState(Controller::StateController& sc);
       virtual void playGame();
       bool objectClicked(const sf::Event& event, sf::Shape& shape);
       bool objectClicked(const sf::Event& event, UI::Button& shape);

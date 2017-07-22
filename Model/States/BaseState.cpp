@@ -3,9 +3,8 @@
 
 namespace State
 {
-  BaseState::BaseState(sf::RenderWindow& window, Controller::StateController& sc)
-  : win(&window),
-  stateController(&sc)
+  BaseState::BaseState(Controller::StateController& sc)
+  : stateController(&sc)
   {
 
   }

@@ -7,7 +7,7 @@ namespace Controller
   : win (&window),
   rm(&resourceManager)
   {
-    pushState(std::make_unique<State::MainMenu>(*win, *this));
+    pushState(std::make_unique<State::MainMenu>(*this));
   }
 
   void StateController::pushState(std::unique_ptr<State::BaseState> nextState)

@@ -12,7 +12,7 @@ namespace State
       UI::Button button;
 
     public:
-      MainMenu(sf::RenderWindow& window, Controller::StateController& sc);
+      MainMenu(Controller::StateController& sc);
       void playGame();
 
   };

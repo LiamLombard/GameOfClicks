@@ -4,23 +4,23 @@
 
 namespace State
 {
-  RandomGame::RandomGame(sf::RenderWindow& window, Controller::StateController& sc, int size)
-  : BaseState (window, sc),
+  RandomGame::RandomGame(Controller::StateController& sc, int size)
+  : BaseState (sc),
   rect(sf::Vector2f(size, size)),
-  randWidth(0,window.getSize().x-size),
-  randHeight(0,window.getSize().y-size)
+  randWidth(0,stateController->getWin().getSize().x-size),
+  randHeight(0,stateController->getWin().getSize().y-size)
   {
-    rect.setPosition((window.getSize().x-size)/2, (window.getSize().y-size)/2);
+    rect.setPosition((stateController->getWin().getSize().x-size)/2, (stateController->getWin().getSize().y-size)/2);
   }
 
   void RandomGame::playGame()
   {
     sf::Event event;
-    while (win->pollEvent(event))
+    while (stateController->getWin().pollEvent(event))
     {
       if (event.type == sf::Event::Closed)
       {
-        win->close();
+        stateController->getWin().close();
       }
       if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
       {
@@ -32,9 +32,9 @@ namespace State
       }
     }
 
-    win->clear();
-    win->draw(rect);
-    win->display();
+    stateController->getWin().clear();
+    stateController->getWin().draw(rect);
+    stateController->getWin().display();
   }
 
 }
