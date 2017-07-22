@@ -7,8 +7,7 @@ namespace State
   RandomGame::RandomGame(Controller::StateController& sc, int size)
   : BaseState (sc),
   rect(sf::Vector2f(size, size)),
-  randWidth(0,getWin().getSize().x-size),
-  randHeight(0,getWin().getSize().y-size)
+  rnd(getWin().getSize(), rect.getSize())
   {
     rect.setPosition((getWin().getSize().x-size)/2, (getWin().getSize().y-size)/2);
   }
@@ -28,7 +27,7 @@ namespace State
       }
       if(objectClicked(event, rect))
       {
-        rect.setPosition(randWidth(gen), randHeight(gen));
+        rect.setPosition(rnd.getRandomCoord());
       }
     }
 

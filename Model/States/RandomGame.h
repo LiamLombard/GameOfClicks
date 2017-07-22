@@ -1,8 +1,8 @@
 #ifndef RANDOM_GAME_H
 #define RANDOM_GAME_H
 
-#include <random>
 #include "BaseState.h"
+#include "../Utility/RandomGen.h"
 
 namespace State
 {
@@ -10,9 +10,7 @@ namespace State
   {
     private:
       sf::RectangleShape rect;
-      std::default_random_engine gen;
-      std::uniform_int_distribution<int> randWidth;
-      std::uniform_int_distribution<int> randHeight;
+      Utility::RandomGen rnd;
 
     public:
       RandomGame(Controller::StateController& sc, int size);
