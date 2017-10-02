@@ -1,15 +1,18 @@
 #include "MainMenu.h"
+#include "RandomGame.h"
 #include "HecticGame.h"
-
 
 
 namespace State
 {
     MainMenu::MainMenu(Controller::StateController& sc)
     : BaseState(sc),
-    button(*stateController, "Play Game!", Hack)
+    randbutton(*stateController, "Random Game", Hack),
+    hecticbutton(*stateController, "Hectic Game", Hack)
     {
-      button.setPosition(getWin().getSize().x/2, getWin().getSize().y/2);
+      randbutton.setPosition(getWin().getSize().x/2, getWin().getSize().y * 0.4);
+      hecticbutton.setPosition(getWin().getSize().x/2, getWin().getSize().y * 0.6);
+
     }
 
     void MainMenu::playGame()
@@ -21,14 +24,20 @@ namespace State
         {
           getWin().close();
         }
-        if(objectClicked(event, button))
+        if(objectClicked(event, randbutton))
+        {
+          pushState(std::make_unique<RandomGame>(*stateController, 50));
+          return;
+        }
+        if(objectClicked(event, hecticbutton))
         {
           pushState(std::make_unique<HecticGame>(*stateController));
           return;
         }
       }
       getWin().clear();
-      getWin().draw(button);
+      getWin().draw(randbutton);
+      getWin().draw(hecticbutton);
       getWin().display();
     }
 }

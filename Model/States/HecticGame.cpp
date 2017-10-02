@@ -1,6 +1,5 @@
 #include "HecticGame.h"
 #include "../../Controller/StateController.h"
-#include <iostream>
 
 namespace State
 {
@@ -44,9 +43,6 @@ namespace State
     }
 
     std::chrono::duration<double> duration = std::chrono::system_clock::now() - start;
-
-    std::cout << count << '\n';
-    std::cout << duration.count() << '\n';
 
     if(duration.count() > count)
     {

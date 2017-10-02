@@ -9,7 +9,8 @@ namespace State
   class MainMenu : public BaseState
   {
     private:
-      UI::Button button;
+      UI::Button randbutton;
+      UI::Button hecticbutton;
 
     public:
       MainMenu(Controller::StateController& sc);
