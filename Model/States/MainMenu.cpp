@@ -1,5 +1,5 @@
 #include "MainMenu.h"
-#include "RandomGame.h"
+#include "HecticGame.h"
 
 
 
@@ -23,7 +23,7 @@ namespace State
         }
         if(objectClicked(event, button))
         {
-          pushState(std::make_unique<RandomGame>(*stateController, 50));
+          pushState(std::make_unique<HecticGame>(*stateController));
           return;
         }
       }
