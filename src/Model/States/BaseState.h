@@ -1,5 +1,4 @@
-#ifndef BASE_STATE_H
-#define BASE_STATE_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include "../UI/Button.h"
@@ -25,5 +24,3 @@ namespace State
       void pushState(std::unique_ptr<State::BaseState> nextState);
   };
 }
-
-#endif /* end of include guard: BASE_STATE_H */

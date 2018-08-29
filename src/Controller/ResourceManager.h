@@ -1,5 +1,4 @@
-#ifndef RESOURCE_MANAGER_H
-#define RESOURCE_MANAGER_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <map>
@@ -22,5 +21,3 @@ namespace Controller
         const sf::Font& getFont(enum FontRef reference) const;
     };
 }
-
-#endif /* end of include guard: RESOURCE_MANAGER_H */

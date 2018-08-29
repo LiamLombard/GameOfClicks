@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "../Model/States/RandomGame.h"
-#include "StateController.h"
+#include "Model/States/RandomGame.h"
+#include "Controller/StateController.h"
 
 constexpr static int W_HEIGHT = 720;
 constexpr static int W_WIDTH = 1280;
@@ -12,7 +12,4 @@ int main()
   window.setVerticalSyncEnabled(true);
   Controller::StateController sc(window, rm);
   sc.runMainLoop();
-
-
-  return 0;
 }

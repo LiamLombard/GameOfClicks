@@ -1,5 +1,4 @@
-#ifndef RANDOM_GEN_H
-#define RANDOM_GEN_H
+#pragma once
 
 #include <random>
 #include <SFML/Graphics.hpp>
@@ -17,5 +16,3 @@ namespace Utility
       sf::Vector2f getRandomCoord();
   };
 }
-
-#endif /* end of include guard: RANDOM_GEN_H */

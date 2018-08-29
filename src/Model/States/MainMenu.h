@@ -1,5 +1,4 @@
-#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
+#pragma once
 
 #include "BaseState.h"
 #include "../UI/Button.h"
@@ -11,6 +10,7 @@ namespace State
     private:
       UI::Button randbutton;
       UI::Button hecticbutton;
+      UI::Button exitbutton;
 
     public:
       MainMenu(Controller::StateController& sc);
@@ -18,5 +18,3 @@ namespace State
 
   };
 }
-
-#endif /* end of include guard: MAIN_MENU_H */

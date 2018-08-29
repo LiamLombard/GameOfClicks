@@ -1,5 +1,4 @@
-#ifndef STATE_CONTROLLER_H
-#define STATE_CONTROLLER_H
+#pragma once
 
 #include "../Model/States/BaseState.h"
 #include "ResourceManager.h"
@@ -30,5 +29,3 @@ namespace Controller
 
   };
 }
-
-#endif /* end of include guard: STATE_CONTROLLER_H */

@@ -1,5 +1,4 @@
-#ifndef HECTIC_GAME
-#define HECTIC_GAME
+#pragma once
 
 #include <vector>
 #include "BaseState.h"
@@ -21,5 +20,3 @@ namespace State
       void playGame();
   };
 }
-
-#endif /* end of include guard: HECTIC_GAME */

@@ -1,5 +1,4 @@
-#ifndef RANDOM_GAME_H
-#define RANDOM_GAME_H
+#pragma once
 
 #include "BaseState.h"
 #include "../Utility/RandomGen.h"
@@ -18,5 +17,3 @@ namespace State
 
   };
 }
-
-#endif /* end of include guard: RANDOM_GAME_H */

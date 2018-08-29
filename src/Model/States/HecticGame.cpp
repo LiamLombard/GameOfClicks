@@ -27,6 +27,7 @@ namespace State
       {
         stateController->popState();
       }
+      
       int index = -1;
       for(unsigned int i = 0; i < buttons.size(); i++)
       {

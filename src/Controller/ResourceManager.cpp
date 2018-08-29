@@ -10,7 +10,7 @@ namespace Controller
   void ResourceManager::addFont(const std::string& filename, enum FontRef reference)
   {
     sf::Font font;
-    font.loadFromFile("Resources/" + filename);
+    font.loadFromFile("../Resources/" + filename);
     fontList.insert(std::make_pair(reference, font));
   }
 
