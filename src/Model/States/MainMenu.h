@@ -13,7 +13,8 @@ namespace State
       UI::Button exitbutton;
 
     public:
-      MainMenu(Controller::StateController& sc);
+      MainMenu(std::shared_ptr<Controller::StateController> sc);
+      virtual ~MainMenu() final;
       void playGame();
 
   };

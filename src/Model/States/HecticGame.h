@@ -16,7 +16,8 @@ namespace State
       std::vector<sf::RectangleShape> buttons;
       Utility::RandomGen rnd;
     public:
-      HecticGame(Controller::StateController& sc);
+      HecticGame(std::shared_ptr<Controller::StateController> sc);
+      virtual ~HecticGame() final;
       void playGame();
   };
 }

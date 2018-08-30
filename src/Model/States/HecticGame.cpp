@@ -3,7 +3,7 @@
 
 namespace State
 {
-  HecticGame::HecticGame(Controller::StateController& sc)
+  HecticGame::HecticGame(std::shared_ptr<Controller::StateController> sc)
   : BaseState(sc),
   count(0),
   rnd(getWin().getSize(), targetSize)
@@ -12,6 +12,11 @@ namespace State
     rect.setPosition((getWin().getSize().x-targetSize.x)/2, (getWin().getSize().y-targetSize.y)/2);
     buttons.push_back(rect);
   }
+
+  HecticGame::~HecticGame()
+  {
+
+  } 
 
   void HecticGame::playGame()
   {
@@ -29,7 +34,7 @@ namespace State
       }
       
       int index = -1;
-      for(unsigned int i = 0; i < buttons.size(); i++)
+      for(int i = 0; i < buttons.size(); i++)
       {
         if(objectClicked(event, buttons[i]))
         {

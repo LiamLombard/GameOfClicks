@@ -54,7 +54,7 @@ namespace UI
     return backGround.getPoint(index);
   }
 
-  sf::RectangleShape& Button::getBackGround()
+  sf::RectangleShape Button::getBackGround() const
   {
     return backGround;
   }

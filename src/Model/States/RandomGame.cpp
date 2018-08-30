@@ -4,12 +4,16 @@
 
 namespace State
 {
-  RandomGame::RandomGame(Controller::StateController& sc, int size)
+  RandomGame::RandomGame(std::shared_ptr<Controller::StateController> sc, float size)
   : BaseState (sc),
   rect(sf::Vector2f(size, size)),
   rnd(getWin().getSize(), rect.getSize())
   {
-    rect.setPosition((getWin().getSize().x-size)/2, (getWin().getSize().y-size)/2);
+    rect.setPosition((static_cast<float>(getWin().getSize().x)-size)/2, (static_cast<float>(getWin().getSize().y)-size)/2);
+  }
+
+  RandomGame::~RandomGame()
+  {
   }
 
   void RandomGame::playGame()

@@ -20,6 +20,7 @@ namespace Controller
 
     public:
       StateController(sf::RenderWindow& window, ResourceManager& resourceManager);
+      ~StateController();
       void pushState(std::unique_ptr<State::BaseState> nextState);
       void popState();
       void runMainLoop();

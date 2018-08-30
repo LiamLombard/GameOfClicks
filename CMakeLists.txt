@@ -58,9 +58,6 @@ target_compile_features(gameofclicks PRIVATE cxx_std_17)
 target_link_libraries(gameofclicks PRIVATE project_warnings --coverage sfml-window sfml-graphics sfml-system sfml-audio)
 
 
-
-
-
 enable_testing()
 
 add_executable(${TEST_EXECUTABLE_NAME} test/tester.cpp)

@@ -8,7 +8,12 @@ namespace Controller
   : win (&window),
   rm(&resourceManager)
   {
-    pushState(std::make_unique<State::MainMenu>(*this));
+    std::shared_ptr<StateController> thisPtr(this);
+    pushState(std::make_unique<State::MainMenu>(thisPtr));
+  }
+
+  StateController::~StateController()
+  {
   }
 
   void StateController::pushState(std::unique_ptr<State::BaseState> nextState)

@@ -12,7 +12,8 @@ namespace State
       Utility::RandomGen rnd;
 
     public:
-      RandomGame(Controller::StateController& sc, int size);
+      RandomGame(std::shared_ptr<Controller::StateController> sc, float size);
+      virtual ~RandomGame() final;
       void playGame();
 
   };

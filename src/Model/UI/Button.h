@@ -25,7 +25,7 @@ namespace UI
       void setPosition(float x, float y);
       virtual std::size_t getPointCount() const;
       virtual sf::Vector2f getPoint(std::size_t index) const;
-      sf::RectangleShape& getBackGround();
+      sf::RectangleShape getBackGround() const;
       virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
     private:
